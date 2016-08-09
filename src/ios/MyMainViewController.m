@@ -552,7 +552,7 @@
 #endif
 
     // Use a fixed string to make sure the app will always find its localstorage copy
-    self.wkWebViewLS = [self.wkWebViewLS stringByAppendingPathComponent:[[@"WebsiteData/LocalStorage/http_localhost" stringByAppendingString:@".localstorage"]];
+    self.wkWebViewLS = [self.wkWebViewLS stringByAppendingPathComponent:[@"WebsiteData/LocalStorage/http_localhost.localstorage"]];
     [[CDVLocalStorage class] copyFrom:self.uiWebViewLS to:self.wkWebViewLS error:nil];
   }
 }
