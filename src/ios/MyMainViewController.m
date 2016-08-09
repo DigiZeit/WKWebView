@@ -551,10 +551,8 @@
     self.wkWebViewLS = [self.wkWebViewLS stringByAppendingPathComponent:bundleIdentifier];
 #endif
 
-    // TODO if the app is ever launched on a different port.. LS can't be loaded -- not worse than the previous implementation, but still
-    // TODO use the port, luke!
-    NSString *portAsString = [NSString stringWithFormat:@"%d", httpPort];
-    self.wkWebViewLS = [self.wkWebViewLS stringByAppendingPathComponent:[[@"WebsiteData/LocalStorage/http_localhost_" stringByAppendingString:portAsString] stringByAppendingString:@".localstorage"]];
+    // Use a fixed string to make sure the app will always find its localstorage copy
+    self.wkWebViewLS = [self.wkWebViewLS stringByAppendingPathComponent:[[@"WebsiteData/LocalStorage/http_localhost" stringByAppendingString:@".localstorage"]];
     [[CDVLocalStorage class] copyFrom:self.uiWebViewLS to:self.wkWebViewLS error:nil];
   }
 }
